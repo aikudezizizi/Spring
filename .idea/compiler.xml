@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="8">
+      <module name="Day01_Spring01" target="1.5" />
+      <module name="Day02_Spring01" target="1.5" />
+      <module name="Day02_Spring02_annoIoc" target="1.5" />
+      <module name="Day02_Spring02_annoIoc (1)" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

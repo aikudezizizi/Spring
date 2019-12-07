@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置service-->
+    <bean id="accountService" class="cn.sust.service.impl.AccountServiceImpl">
+        <!--依赖注入，第一种方式，使用构造函数注入-->
+        <!--<constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="age" value="18"></constructor-arg>
+        <constructor-arg name="birthday" ref="date"></constructor-arg>-->
+        <!--依赖注入，第二种方式，使用set方式注入-->
+        <property name="name" value="李四"></property>
+        <property name="age" value="20"></property>
+        <property name="birthday" ref="date"></property>
+    </bean>
+    <bean id="date" class="java.util.Date"></bean>
+    <!--配置dao 默认方式-->
+    <bean id="accountDao" class="cn.sust.dao.impl.AccountDaoImpl"></bean>
+    <!--配置工厂第二种方式-->
+<!--    <bean id="accountService1" class="cn.sust.factory.StaticFactory" factory-method="createAccountService"></bean>-->
+    <!--第三种方式-->
+    <!--<bean id="instanceFactory" class="cn.sust.factory.InstanceFactory"></bean>
+    <bean id="accountDao2" factory-bean="instanceFactory" factory-method="createAccountDao"></bean>-->
+    <bean id="accountService2" class="cn.sust.service.impl.AccountServiceImpl2">
+        <!--注入集合-->
+        <!--list结构的，list array set,只要结构相同，标签可以互换-->
+        <property name="myStrs">
+            <array>
+                <value>AAA</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </array>
+        </property>
+        <property name="myList">
+            <list>
+                <value>ddd</value>
+                <value>eee</value>
+                <value>fff</value>
+            </list>
+        </property>
+        <property name="mySets">
+            <set>
+                <value>111</value>
+                <value>222</value>
+                <value>333</value>
+            </set>
+        </property>
+        <!--map结构的map,entry,props,prop-->
+        <property name="myProp">
+            <props>
+                <prop key="name">张三</prop>
+                <prop key="age">19</prop>
+                <prop key="height">187</prop>
+            </props>
+        </property>
+        <property name="myMap">
+            <map>
+                <entry key="name" value="李四"></entry>
+                <entry key="age" value="39"></entry>
+                <entry key="height">
+                    <value>187</value>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+</beans>
